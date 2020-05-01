@@ -1,0 +1,33 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block style %}
+ <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/style2.css' %}">
+    {% endblock %}
+{% block content %}
+	<!-- main -->
+
+<br>
+
+	<div class="main-w3layouts wrapper" >
+		<h1 class="text">Add Post</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form  method="post" enctype="multipart/form-data"  >
+					{% csrf_token %}
+					<input class="text" type="text" name="Title" placeholder="Article Title" required=""><br>
+					<input class="text " type="file" name="image" placeholder="Article Image" required=""><br><br>
+
+					<textarea  type="text" name="Content" placeholder="Content"  required="" style="height:30vh;color:black;width:100%;"></textarea><br>
+
+
+					<input type="submit" value="POST">
+				</form>
+
+
+			</div>
+		</div>
+
+
+	</div>
+{% endblock %}

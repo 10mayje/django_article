@@ -1,0 +1,39 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block style %}
+
+    {% endblock %}
+{% block content %}
+
+<div class="main">
+<br>
+    <center>
+
+{% for p in post%}
+
+    <div class="main1 content">
+    <div class="subnav"><div class="user"><img src="/media/{{p.pro}}"  class="propic"><h3 class="name"> {{p.author}} </h3></div><h5 class="article" style="padding-left:10px;"> {{p}}  <h6 style="margin-top:10px;padding-left:10px;"><small class="date"> {{p.Date}} </small></h6></h5></div>
+
+    <div class="post">
+
+        <div class="wbox1"><div class="wbox11"> <br> <a href="{% url 'detail' p.id %}">
+                   <img src="/media/{{p.Image}}" id="im" >
+
+              </a>  </div><div class="wbox12"><br> <form method="post">{% csrf_token %}<input type="number" style="display:none;" name="post" placeholder="{{p.id}}" value="{{p.id}}"><button class="btn btn-success"><span > {{p.likeno}} </span><img src="https://img.icons8.com/ios/25/000000/facebook-like.png"/> Like</button></form><br>
+                    <a href="{% url 'detail' p.id %}"><button class="btn btn-info"><span > {{p.commtno}} </span><img src="https://img.icons8.com/ios/25/000000/edit-chat-history.png"/> Comment</button> </a><br><br>
+ </div></div>
+        <div class="wbox2"><div class="boxin">
+          <p style="padding:5px;">{{p.Contents}}</p>
+
+        </div></div>
+
+    </div>
+
+</div>
+
+
+{% endfor %}
+    </center>
+</div>
+
+{% endblock %}

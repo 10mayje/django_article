@@ -1,0 +1,58 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block style %}
+ <link rel="stylesheet" type="text/css" href="{% static 'myapp/style2.css' %}">
+    {% endblock %}
+{% block content %}
+<style>
+  body{
+  background-color:aqua;
+  }
+     .card{
+    background: -webkit-linear-gradient(to top, aqua,#1278d8ea);
+    background: -moz-linear-gradient(to top, aqua,#1278d8ea);
+    background: -o-linear-gradient(to top, aqua, #1278d8ea);
+    background: linear-gradient(to top, aqua, #1278d8ea);
+    }
+</style>
+<br>
+<br>
+<br>
+<center>
+
+    {% for use in us %}
+<div class="card" style="width:40%;"><br>
+  <img src="/media/{{user.image}}" style=" height:100px;width:100px;display: block;border-radius:50px;">
+  <div class="card-body"><hr>
+    <h5 class="card-title">name: {{use.nicname}}</h5><hr>
+      <h5 class="card-title">Phone no: {{use.Phoneno}}</h5><hr>
+      <h5 class="card-title">Adress: {{use.Adres}}</h5><hr>
+  </div>
+
+  <div class="card-body"><center>
+    <a href="{% url 'updateprofile' %}" class="card-link"><button class="btn btn-success">Edit</button></a>
+  </center>
+
+  </div>
+</div>
+{% endfor %}
+    <br>
+    <br>
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

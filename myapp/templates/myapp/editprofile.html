@@ -1,0 +1,36 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block style %}
+ <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/style2.css' %}">
+    {% endblock %}
+{% block content %}
+	<!-- main -->
+
+<br>
+
+	<div class="main-w3layouts wrapper">
+		<h1 class="text">Edit profile </h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form  method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+                    <input class="text" type="file" name="Image" accept=" image/*, image/heic, image/heif" placeholder="profilepic" required=""><br><br>
+					<input class="text" type="text" name="nicname" placeholder="nicname" required=""><br>
+					<input class="text " type="text" name="phoneno" placeholder="Phone no" required=""><br>
+
+
+					<input class="text" type="text" name="adres" placeholder="Adress/Location" required=""><br>
+					<div class="wthree-text">
+
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="SAVE">
+				</form>
+
+			</div>
+		</div>
+
+
+	</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/style2.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<br>
+
+	<div class="main-w3layouts wrapper">
+		<h1 class="text"> Delete Article {{p.Title}}  </h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form  method="post">
+					{% csrf_token %}
+
+
+
+					<input type="submit" value="DELETE">
+				</form>
+
+				<a href="{% url 'my' %}"><button class="btn btn-info">Back</button></a>
+
+
+			</div>
+		</div>
+
+
+	</div>
+
+
+{% endblock %}
